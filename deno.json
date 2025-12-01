@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "new": "deno run -A new.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "@std/cli": "jsr:@std/cli@^1.0.24",
+    "@std/expect": "jsr:@std/expect@1"
+  }
+}
