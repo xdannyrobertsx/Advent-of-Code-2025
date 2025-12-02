@@ -1,7 +1,7 @@
 {
   "tasks": {
     "main": "deno lint && deno run --allow-read main.ts",
-    "test": "deno test -A --no-check"
+    "test": "deno test --no-check --allow-read --watch"
   },
   "imports": {
     "@std/expect": "jsr:@std/expect@1"

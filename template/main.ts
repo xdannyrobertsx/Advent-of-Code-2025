@@ -3,5 +3,7 @@ export const main = async (filePath: string) => {
   return input.split(" ").length;
 };
 
-const result = await main("input.txt");
-console.log(result);
+if (import.meta.main) {
+  const result = await main("input.txt");
+  console.log(result);
+}
