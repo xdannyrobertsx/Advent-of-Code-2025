@@ -6,11 +6,10 @@ export const main = async (filePath: string) => {
   };
 
   const numChecker = (range: number[]): number => {
-    // regex is wrong here
-    // So, 55 (5 twice), 6464 (64 twice), and 123123 (123 twice)
-    const regex = new RegExp(/^([0-9])\1*$/);
-    const matches = range.filter((num: number) => regex.test(String(num)));
-    console.log(matches);
+    // https://stackoverflow.com/questions/79145058/regex-that-match-exactly-half-of-an-even-sized-doubled-string
+    // https://stackoverflow.com/questions/928179/matching-on-repeated-substrings-in-a-regex
+    const regex = new RegExp(/^(\d+)\1$/);
+    const matches = range.filter((num: number) => (regex.test(String(num))));
     if (matches.length === 0) return 0;
 
     return matches.reduce((a, b) => a + b);
