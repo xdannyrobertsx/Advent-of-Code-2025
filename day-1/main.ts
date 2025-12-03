@@ -7,50 +7,34 @@ export const main = async (filePath: string) => {
   let result1 = 0;
   let result2 = 0;
 
+  const countZeros = (
+    position: number,
+    direction: string,
+    clicks: number,
+  ): number => {
+    let firstZero;
+
+    if (position === 0) firstZero = 100;
+    else {
+      firstZero = direction === "L" ? position : (100 - position);
+    }
+
+    if (firstZero > clicks) return 0;
+
+    return Math.floor((clicks - firstZero) / 100) + 1;
+  };
+
   rotations.forEach((rotation) => {
     const number = Number((numberRegex.exec(rotation) ?? [])[0]);
-    const increment = (incrementRegex.exec(rotation) ?? [])[0];
+    const increment = (incrementRegex.exec(rotation) ?? [])[0] as string;
 
-    const initialNum = currentNumber;
+    result2 += countZeros(currentNumber, increment, number);
 
     const numberState = increment === "L"
       ? (currentNumber - number)
       : (currentNumber + number);
 
-    console.log(
-      "\nrotation",
-      rotation,
-    );
-
-    console.log(
-      "initialNum",
-      initialNum,
-    );
-
-    console.log(
-      "numberState",
-      numberState,
-    );
-
-    let danny;
-
-    currentNumber = numberState % 100;
-    console.log("currentNumber", currentNumber)
-
-    if (currentNumber === 0) {
-     danny = 0
-    }
-    else if (currentNumber < 0) {
-        danny = 100 + currentNumber;
-    }
-    else {
-        danny = initialNum - currentNumber;
-    }
-
-    console.log(
-      "danny",
-      danny
-    );
+    currentNumber = ((numberState % 100) + 100) % 100;
 
     if (currentNumber === 0) result1++;
   });
@@ -59,6 +43,7 @@ export const main = async (filePath: string) => {
 };
 
 if (import.meta.main) {
-  const { result1 } = await main("input.txt");
-  console.log(`Result 1: ${result1}`);
+  const { result1, result2 } = await main("input.txt");
+  console.log(`\nResult 1: ${result1}`);
+  console.log(`\nResult 2: ${result2}`);
 }
