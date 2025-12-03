@@ -2,6 +2,7 @@ import { expect } from "@std/expect";
 import { main } from "./main.ts";
 
 Deno.test("get correct output given example", async () => {
-  const result = await main("example.txt");
-  expect(result).toBe(1227775554);
+  const { result1, result2 } = await main("example.txt");
+  expect(result1).toBe(1227775554);
+  expect(result2).toBe(4174379265);
 });

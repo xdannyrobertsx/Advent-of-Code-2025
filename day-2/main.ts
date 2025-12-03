@@ -17,14 +17,21 @@ export const main = async (filePath: string) => {
 
   const input = await Deno.readTextFile(filePath);
   const ids = input.replaceAll("\n", "").split(",");
-  return ids.reduce((acc, id) => {
+  const result1 = ids.reduce((acc, id) => {
     const [start, end] = id.split("-").map(Number);
     const range = getRange(start, end);
     return acc += numChecker(range);
   }, 0);
+  const result2 = 0;
+
+  return {
+    result1,
+    result2,
+  };
 };
 
 if (import.meta.main) {
-  const result = await main("input.txt");
-  console.log(result);
+  const { result1, result2 } = await main("input.txt");
+  console.log(`\nResult 1: ${result1}`);
+  console.log(`\nResult 2: ${result2}`);
 }
