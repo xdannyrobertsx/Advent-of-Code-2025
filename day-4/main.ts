@@ -12,6 +12,9 @@
 // x.@@@.@@@@
 // .@@@@@@@@.
 // x.x.@@@.x.
+type LineState = {
+  [key: string]: number[] | undefined;
+};
 
 const lineChecker = (lines: string[]): number => {
   let lineCounts = 0;
@@ -19,22 +22,30 @@ const lineChecker = (lines: string[]): number => {
   // check line for @
   // if found, check surrounding 8
   // if less than 4 other @ in sorroundings, count as one
-  type LineState = {
-    [key: number]: number[] | undefined;
-  };
 
-  const lineMap = lines.reduce((acc: LineState, line: string, index: number) => {
-    if (!line.includes("@")) {
-      acc[index] = [];
-    }
+  const lineMap = lines.reduce(
+    (acc: LineState, line: string, index: number) => {
+      if (!line.includes("@")) {
+        acc[index] = [];
+      }
 
-    acc[index] = [...line.matchAll(/@/g)].map((line) => line.index);
-    return acc;
-    // const surroundingLines =
-    // const count = lineCounter(indexes, surroundingLines)
-  }, {});
+      acc[index] = [...line.matchAll(/@/g)].map((line) => line.index);
+      return acc;
+      // const surroundingLines =
+      // const count = lineCounter(indexes, surroundingLines)
+    },
+    {},
+  );
   console.log("lineMap", lineMap);
-  return 1;
+  lines.forEach((line, index) =>{
+    const currentLine = lineMap[index]
+    const nextLine = lineMap[index + 1]
+    const previousLine = lineMap[index - 1]
+    console.log('currentLine', currentLine)
+    console.log('nextLine', nextLine)
+    console.log('previousLine', previousLine)
+  })
+  return 13;
 };
 
 export const main = async (filePath: string) => {
