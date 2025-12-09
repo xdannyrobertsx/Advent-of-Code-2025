@@ -31,21 +31,21 @@ const lineChecker = (lines: string[]): number => {
 
       acc[index] = [...line.matchAll(/@/g)].map((line) => line.index);
       return acc;
-      // const surroundingLines =
-      // const count = lineCounter(indexes, surroundingLines)
     },
     {},
   );
-  console.log("lineMap", lineMap);
-  lines.forEach((line, index) =>{
-    const currentLine = lineMap[index]
-    const nextLine = lineMap[index + 1]
-    const previousLine = lineMap[index - 1]
-    console.log('currentLine', currentLine)
-    console.log('nextLine', nextLine)
-    console.log('previousLine', previousLine)
-  })
-  return 13;
+
+  lines.forEach((line, index) => {
+    const currentLine = lineMap[index];
+    const nextLine = lineMap[index + 1];
+    const previousLine = lineMap[index - 1];
+    lineCounts += currentLine.reduce((total, num) => {
+// wtf do i do herE???
+return total
+    },0)
+  });
+
+  return lineCounts;
 };
 
 export const main = async (filePath: string) => {
