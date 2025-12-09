@@ -14,20 +14,22 @@ i'll (hopefully) update this file at the end of the month!
 - danny
 ```
 ---
-||part1|part 2|
-|:-:|-|-|
-|day 1|✅|✅|
-|day 2|✅|✅|
-|day 3|✅||
-|day 4|✅||
-|day 5|✅||
-|day 6|||
-|day 7|||
-|day 8|||
-|day 9|||
-|day 10|||
-|day 11|||
-|day 12|||
+
+|        | part1 | part 2 |
+| :----: | ----- | ------ |
+| day 1  | ✅    | ✅     |
+| day 2  | ✅    | ✅     |
+| day 3  | ✅    |        |
+| day 4  | ✅    |        |
+| day 5  | ✅    |        |
+| day 6  |       |        |
+| day 7  |       |        |
+| day 8  |       |        |
+| day 9  |       |        |
+| day 10 |       |        |
+| day 11 |       |        |
+| day 12 |       |        |
+
 ---
 
 ###### URL: https://adventofcode.com/2025

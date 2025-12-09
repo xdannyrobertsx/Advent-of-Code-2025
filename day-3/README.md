@@ -55,11 +55,18 @@ There are many batteries in front of you. Find the maximum joltage possible from
 each bank; what is the total output joltage?
 
 ## --- Part Two ---
-The escalator doesn't move. The Elf explains that it probably needs more joltage to overcome the static friction of the system and hits the big red "joltage limit safety override" button. You lose count of the number of times she needs to confirm "yes, I'm sure" and decorate the lobby a bit while you wait.
 
-Now, you need to make the largest joltage by turning on exactly twelve batteries within each bank.
+The escalator doesn't move. The Elf explains that it probably needs more joltage
+to overcome the static friction of the system and hits the big red "joltage
+limit safety override" button. You lose count of the number of times she needs
+to confirm "yes, I'm sure" and decorate the lobby a bit while you wait.
 
-The joltage output for the bank is still the number formed by the digits of the batteries you've turned on; the only difference is that now there will be 12 digits in each bank's joltage output instead of two.
+Now, you need to make the largest joltage by turning on exactly twelve batteries
+within each bank.
+
+The joltage output for the bank is still the number formed by the digits of the
+batteries you've turned on; the only difference is that now there will be 12
+digits in each bank's joltage output instead of two.
 
 Consider again the example from before:
 
@@ -69,6 +76,7 @@ Consider again the example from before:
 234234234234278
 818181911112111
 ```
+
 Now, the joltages are much larger:
 
 ```

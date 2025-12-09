@@ -1,5 +1,3 @@
-// ruby does this so easily :(
-
 export const main = async (filePath: string) => {
   const input = await Deno.readTextFile(filePath);
   const [ranges, freshIds] = input.split("\n\n").map((arr) =>
