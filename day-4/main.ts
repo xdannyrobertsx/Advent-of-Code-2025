@@ -1,27 +1,9 @@
-// The forklifts can only access a roll of paper if there are fewer than four rolls of paper in the eight adjacent positions.
-
-// In this example, there are 13 rolls of paper that can be accessed by a forklift (marked with x):
-
-// ..xx.xx@x.
-// x@@.@.@.@@
-// @@@@@.x.@@
-// @.@@@@..@.
-// x@.@@@@.@x
-// .@@@@@@@.@
-// .@.@.@.@@@
-// x.@@@.@@@@
-// .@@@@@@@@.
-// x.x.@@@.x.
 type LineState = {
   [key: string]: number[] | undefined;
 };
 
 const lineChecker = (lines: string[]): number => {
   let lineCounts = 0;
-  // y is the index of lineChecker and x is the index of the line itself
-  // check line for @
-  // if found, check surrounding 8
-  // if less than 4 other @ in sorroundings, count as one
 
   const lineMap = lines.reduce(
     (acc: LineState, line: string, index: number) => {
@@ -35,14 +17,28 @@ const lineChecker = (lines: string[]): number => {
     {},
   );
 
-  lines.forEach((line, index) => {
-    const currentLine = lineMap[index];
-    const nextLine = lineMap[index + 1];
-    const previousLine = lineMap[index - 1];
+  lines.forEach((_, index) => {
+    const currentLine = lineMap[index] || [];
+    const nextLine = lineMap[index + 1] || [];
+    const previousLine = lineMap[index - 1] || [];
     lineCounts += currentLine.reduce((total, num) => {
-// wtf do i do herE???
-return total
-    },0)
+      const directionNums = [num - 1, num, num + 1];
+      const previousMatches = previousLine.filter((pNum) =>
+        directionNums.includes(pNum)
+      );
+      const nextMatches = nextLine.filter((nNum) =>
+        directionNums.includes(nNum)
+      );
+      const currentMatches = currentLine.filter((cNum) =>
+        cNum !== num && directionNums.includes(cNum)
+      );
+      const numCount = previousMatches.length + currentMatches.length +
+        nextMatches.length;
+
+      const toAdd = numCount < 4 ? 1 : 0;
+
+      return total += toAdd;
+    }, 0);
   });
 
   return lineCounts;
