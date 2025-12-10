@@ -69,7 +69,7 @@ for await (const entry of Deno.readDir(templateDir)) {
   }
 }
 
-success(`Created %c${targetDir}!%c`);
+success(`Created ${targetDir}!`);
 console.log(`
 
 `);
