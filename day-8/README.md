@@ -34,7 +34,7 @@ For example:
 ```
 This list describes the position of `20` junction boxes, one per line. Each position is given as X,Y,Z coordinates. So, the first junction box in the list is at `X=162`, `Y=817`, `Z=812`.
 
-To save on string lights, the Elves would like to focus on connecting pairs of junction boxes that are as close together as possible according to straight-line distance. In this example, the two junction boxes which are closest together are `162,817,812` and `425,690,689`.
+To save on string lights, the Elves would like to focus on connecting pairs of junction boxes that are as close together as possible according to [straight-line distance](https://en.wikipedia.org/wiki/Euclidean_distance). In this example, the two junction boxes which are closest together are `162,817,812` and `425,690,689`.
 
 By connecting these two junction boxes together, because electricity can flow between them, they become part of the same circuit. After connecting them, there is a single circuit which contains two junction boxes, and the remaining 18 junction boxes remain in their own individual circuits.
 
