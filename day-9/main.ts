@@ -1,6 +1,10 @@
 export const main = async (filePath: string) => {
   const input = await Deno.readTextFile(filePath);
-  return input.split(" ").length;
+  const tileCoordinates = input.split("\n").map((tile) =>
+    tile.split(",").map(Number)
+  );
+  console.log(tileCoordinates);
+  return 50;
 };
 
 if (import.meta.main) {

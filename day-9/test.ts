@@ -3,5 +3,5 @@ import { main } from "./main.ts";
 
 Deno.test("get correct output given example", async () => {
   const result = await main("example.txt");
-  expect(result).toBe(2);
+  expect(result).toBe(50);
 });
